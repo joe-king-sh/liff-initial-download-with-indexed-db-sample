@@ -1,1 +1,1 @@
-# liff-initial-download-with-indexed-db-sample
+# LINE ミニアプリで初期データロードを行うサンプルコード
