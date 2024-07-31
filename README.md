@@ -1,0 +1,1 @@
+# liff-initial-download-with-indexed-db-sample
