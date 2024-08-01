@@ -15,9 +15,10 @@ type Story = StoryObj<typeof DownloadConfirmModal>;
 export const Default: Story = {
   render: () => (
     <DownloadConfirmModal
+      fileSize="10MB"
       isOpen={true}
       isDownloading={false}
-      onDownload={() => undefined}
+      onDownload={() => new Promise(() => undefined)}
       onCancel={() => undefined}
     />
   ),
@@ -27,9 +28,10 @@ export const Default: Story = {
 export const Downloading: Story = {
   render: () => (
     <DownloadConfirmModal
+      fileSize="10MB"
       isOpen={true}
       isDownloading={true}
-      onDownload={() => undefined}
+      onDownload={() => new Promise(() => undefined)}
       onCancel={() => undefined}
     />
   ),

@@ -12,7 +12,7 @@ const meta: Meta<typeof Modal> = {
   title: "Components/Modal",
   component: Modal,
   tags: ["autodocs"],
-  decorators:[ withPortalRoot]
+  decorators: [withPortalRoot],
 };
 
 // eslint-disable-next-line import/no-default-export
@@ -21,5 +21,5 @@ export default meta;
 type Story = StoryObj<typeof Modal>;
 
 export const DefaultModal: Story = {
-  render: () => <Modal isOpen={true}>モーダル</Modal>
+  render: () => <Modal isOpen={true}>モーダル</Modal>,
 };

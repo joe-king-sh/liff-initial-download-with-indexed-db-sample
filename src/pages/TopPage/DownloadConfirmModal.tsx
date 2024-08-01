@@ -4,6 +4,7 @@ import { Modal } from "@/components/Modal";
 import { Spinner } from "@/components/Spinner";
 
 type DownloadConfirmModalProps = {
+  fileSize: string;
   isOpen: boolean;
   isDownloading: boolean;
   onDownload: () => Promise<void>;
@@ -11,6 +12,7 @@ type DownloadConfirmModalProps = {
 };
 
 export const DownloadConfirmModal: FC<DownloadConfirmModalProps> = ({
+  fileSize,
   isOpen,
   isDownloading,
   onDownload,
@@ -28,7 +30,7 @@ export const DownloadConfirmModal: FC<DownloadConfirmModalProps> = ({
           <div className="flex flex-col gap-4 text-sm">
             <p>テスト用の短い動画をダウンロードします。</p>
             <div>
-              <p>(データのサイズ: 約10MB)</p>
+              <p>(データのサイズ: 約{fileSize})</p>
               <p>
                 ファイルサイズが大きいため、Wi-Fi環境でのダウンロードを推奨します。
               </p>

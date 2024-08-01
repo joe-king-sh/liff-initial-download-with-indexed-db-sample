@@ -78,11 +78,12 @@ export const Button = ({
   return (
     <button
       disabled={disabled}
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onClick={onClick}
       type={type}
       className={twMerge(
         buttonStyle({ property, variant, disabled }),
-        className
+        className,
       )}
     >
       <div>{icon}</div>

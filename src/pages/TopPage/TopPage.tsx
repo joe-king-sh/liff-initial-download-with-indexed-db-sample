@@ -24,7 +24,7 @@ export const TopPage = (): JSX.Element => {
     };
     fetchVideo().catch((error) =>
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      logger.error({ message: "Error fetching video from IndexedDB:", error })
+      logger.error({ message: "Error fetching video from IndexedDB:", error }),
     );
   }, [logger]);
 
@@ -33,7 +33,7 @@ export const TopPage = (): JSX.Element => {
     setIsDownloading(true);
     try {
       const response = await fetch(
-        "https://cdn.pixabay.com/video/2021/07/22/82399-578640983_large.mp4"
+        "https://cdn.pixabay.com/video/2021/07/22/82399-578640983_large.mp4",
       );
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -133,6 +133,7 @@ export const TopPage = (): JSX.Element => {
         )}
 
         <DownloadConfirmModal
+          fileSize="42.9MB"
           isOpen={isOpen}
           isDownloading={isDownloading}
           onDownload={handleDownload}
