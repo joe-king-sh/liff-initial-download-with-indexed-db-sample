@@ -77,33 +77,36 @@ export const TopPage = (): JSX.Element => {
         <title>{buildAppTitle("LINE ミニアプリ 初期データDLテスト")}</title>
       </Helmet>
 
-      <div className="flex flex-col gap-4 p-4">
-        <div className="flex flex-col gap-4">
+      <main className="flex flex-col gap-4 p-4">
+        <section className="flex flex-col gap-4">
           <h1 className="text-lg font-semibold">
             LINE Mini App 初期データDLテスト
           </h1>
           <p>
             初回起動時にアプリで使用するデータをダウンロードし、その後のデータ通信量を減らすテストサイトです。
           </p>
-        </div>
-        <div className="flex flex-col gap-4">
-          <p className="font-bold">このサイトで検証できること</p>
-          <p>
-            1. アプリを起動すると、データのダウンロードモーダルが起動します。
-          </p>
-          <p>
-            2.
-            ダウンロードを実行すると、音声データがブラウザ(IndexedDB)に保存されます。
-          </p>
-          <p>
-            3.
-            次回起動時には、ブラウザに保存されたデータを使用してアプリが起動します。
-          </p>
-        </div>
+        </section>
+        <section className="flex flex-col gap-4">
+          <h2 className="font-bold">このサイトで検証できること</h2>
+          <ol className="list-inside list-decimal space-y-2">
+            <li>
+              アプリを起動すると、データのダウンロードモーダルが起動します。
+            </li>
+            <li>
+              ダウンロードを実行すると、音声データがブラウザ(IndexedDB)に保存されます。
+            </li>
+            <li>
+              次回起動時には、ブラウザに保存されたデータを使用してアプリが起動します。
+            </li>
+          </ol>
+        </section>
 
         {videoUrl != null ? (
-          <div className="flex flex-col gap-4">
-            <p className="font-bold">ダウンロードされた動画</p>
+          <section className="flex flex-col gap-4">
+            <h2 className="font-bold">ダウンロードされた動画</h2>
+            <p>
+              ダウンロードした動画は端末に保存され、次回起動時にデータ通信は発生しません。
+            </p>
             <video src={videoUrl} controls className="mx-auto w-full max-w-md">
               お使いのブラウザは動画タグをサポートしていません。
               <track kind="captions" src="captions.vtt" label="Japanese" />
@@ -112,10 +115,10 @@ export const TopPage = (): JSX.Element => {
             <Button variant="contained" property="error" onClick={handleDelete}>
               データを削除
             </Button>
-          </div>
+          </section>
         ) : (
-          <div className="flex flex-col gap-4">
-            <p className="font-bold">初期データのダウンロード</p>
+          <section className="flex flex-col gap-4">
+            <h2 className="font-bold">初期データのダウンロード</h2>
             <p>アプリを利用開始するには初期データのダウンロードが必要です。</p>
             <Button
               variant="contained"
@@ -126,7 +129,7 @@ export const TopPage = (): JSX.Element => {
             >
               ダウンロード
             </Button>
-          </div>
+          </section>
         )}
 
         <DownloadConfirmModal
@@ -137,7 +140,7 @@ export const TopPage = (): JSX.Element => {
             setIsOpen(false);
           }}
         />
-      </div>
+      </main>
     </>
   );
 };
