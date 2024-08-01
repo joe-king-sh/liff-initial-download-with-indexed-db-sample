@@ -16,7 +16,7 @@ const db = new Dexie("VideosDatabase") as Dexie & {
 
 // Schema declaration:
 db.version(1).stores({
-  videos: "++id, registeredAt, blob", // primary key "id" (for the runtime!)
+  videos: "&id", // primary key "id"
 });
 
 export type { Video };
