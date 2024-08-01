@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { TopPageView } from "./TopPage";
+import { TopPage } from "./TopPage";
 
-const meta: Meta<typeof TopPageView> = {
+const meta: Meta<typeof TopPage> = {
   title: "Pages/TopPage",
-  component: TopPageView,
+  component: TopPage,
 };
 
 // eslint-disable-next-line import/no-default-export
 export default meta;
 
-type Story = StoryObj<typeof TopPageView>;
+type Story = StoryObj<typeof TopPage>;
 
 export const Default: Story = {
-  render: () => <TopPageView />,
+  render: () => <TopPage />,
 };

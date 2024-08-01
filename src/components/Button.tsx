@@ -11,7 +11,7 @@ type ButtonProps = {
   icon?: React.ReactNode;
   endIcon?: React.ReactNode;
   className?: string;
-  onClick?: () => void;
+  onClick?: () => void | Promise<void>;
 };
 
 const buttonStyle = tv({
@@ -82,7 +82,7 @@ export const Button = ({
       type={type}
       className={twMerge(
         buttonStyle({ property, variant, disabled }),
-        className,
+        className
       )}
     >
       <div>{icon}</div>

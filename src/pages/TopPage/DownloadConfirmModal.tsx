@@ -6,7 +6,7 @@ import { Spinner } from "@/components/Spinner";
 type DownloadConfirmModalProps = {
   isOpen: boolean;
   isDownloading: boolean;
-  onDownload: () => void;
+  onDownload: () => Promise<void>;
   onCancel: () => void;
 };
 
