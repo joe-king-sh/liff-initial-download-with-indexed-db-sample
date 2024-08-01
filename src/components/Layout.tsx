@@ -3,8 +3,10 @@ type LayoutProps = {
 };
 
 export const Layout = ({ children }: LayoutProps) => (
-  // NOTE: LINEミニアプリの審査時に余白の調整が必要であれば適用する
-  // @see https://developers.line.biz/ja/docs/line-mini-app/design/landscape/#for-normal-mode
-  <div className="w-full">{children}</div>
+  <>
+    <div className="w-full">{children}</div>
+    {/* モーダル表示用 */}
+    <div id="portal" />
+  </>
 );
 Layout.displayName = "Layout";

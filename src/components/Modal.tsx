@@ -13,10 +13,12 @@ export const Modal: FC<ModalProps> = (props) => {
   const { children, isOpen, className } = props;
   const logger = useLogger().logger;
 
-  const modalRoot = document.getElementById("portal");
+  let modalRoot = document.getElementById("portal");
   if (modalRoot == null) {
-    logger.error({ message: "modalRoot not found" });
-    return null;
+    modalRoot = document.createElement("div");
+    modalRoot.id = "portal";
+    document.body.appendChild(modalRoot);
+    logger.warn({ message: "modalRoot not found, created a new one" });
   }
 
   return isOpen
