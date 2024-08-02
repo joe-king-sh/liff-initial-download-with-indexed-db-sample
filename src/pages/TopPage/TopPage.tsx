@@ -24,7 +24,7 @@ export const TopPage = (): JSX.Element => {
     };
     fetchVideo().catch((error) =>
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      logger.error({ message: "Error fetching video from IndexedDB:", error }),
+      logger.error({ message: "Error fetching video from IndexedDB:", error })
     );
   }, [logger]);
 
@@ -33,7 +33,7 @@ export const TopPage = (): JSX.Element => {
     setIsDownloading(true);
     try {
       const response = await fetch(
-        "https://cdn.pixabay.com/video/2021/07/22/82399-578640983_large.mp4",
+        "https://cdn.pixabay.com/video/2021/07/22/82399-578640983_large.mp4"
       );
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -65,10 +65,14 @@ export const TopPage = (): JSX.Element => {
         URL.revokeObjectURL(videoUrl);
       }
       setVideoUrl(null);
-      console.log("Video deleted from IndexedDB");
+      logger.info({ message: "Video deleted from IndexedDB" });
     } catch (error) {
-      console.error("Error deleting video from IndexedDB:", error);
+      logger.error({ message: "Error deleting video from IndexedDB:", error });
     }
+  };
+
+  const handleModalOpen = () => {
+    setIsOpen(true);
   };
 
   return (
@@ -137,9 +141,7 @@ export const TopPage = (): JSX.Element => {
           isOpen={isOpen}
           isDownloading={isDownloading}
           onDownload={handleDownload}
-          onCancel={() => {
-            setIsOpen(false);
-          }}
+          onCancel={handleModalOpen}
         />
       </main>
     </>
